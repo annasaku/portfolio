@@ -2,14 +2,25 @@ import React, { useRef, useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+  const homeRef = useRef(null);
   const aboutRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
   const navRef = useRef(null);
   const [navFixed, setNavFixed] = useState(false);
   const [showNav, setShowNav] = useState(false);
 
-  // Handle scroll to About section
+  const scrollToHome = () => {
+    homeRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
   const scrollToAbout = () => {
     aboutRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+  const scrollToProjects = () => {
+    projectsRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+  const scrollToContact = () => {
+    contactRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   // Handle nav bar fixed state
@@ -30,7 +41,7 @@ function App() {
   return (
     <div className="app-root">
       {/* Landing Page */}
-      <section className="landing-section">
+      <section className="landing-section" ref={homeRef}>
         <h1 className="landing-title">Hello</h1>
         <button className="view-work-btn" onClick={scrollToAbout}>
           View My Work
@@ -45,20 +56,21 @@ function App() {
           className={`about-nav${navFixed ? ' fixed' : ''}${showNav ? '' : ' hidden'}`}
         >
           <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li onClick={scrollToHome}>Home</li>
+            <li onClick={scrollToAbout}>About</li>
+            <li onClick={scrollToProjects}>Projects</li>
+            <li onClick={scrollToContact}>Contact</li>
           </ul>
         </nav>
-        <div className="about-content about" id="about">
+        <div className="about-content about" id="about" ref={aboutRef}>
           <h2>About Me</h2>
           <p>I'm Anna!!! Yay!</p>
         </div>
-        <div className="about-content projects" id="projects">
+        <div className="about-content projects" id="projects" ref={projectsRef}>
           <h2>Projects</h2>
           <p>list projects here</p>
         </div>
-        <div className="about-content contact" id="contact">
+        <div className="about-content contact" id="contact" ref={contactRef}>
           <h2>Contact</h2>
           <p>my contact details</p>
         </div>
