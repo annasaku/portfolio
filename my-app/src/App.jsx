@@ -1,35 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useRef, useEffect, useState } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const aboutRef = useRef(null);
+  const navRef = useRef(null);
+  const [navFixed, setNavFixed] = useState(false);
+  const [showNav, setShowNav] = useState(false);
+
+  // Handle scroll to About section
+  const scrollToAbout = () => {
+    aboutRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // Handle nav bar fixed state
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!aboutRef.current || !navRef.current) return;
+      const aboutTop = aboutRef.current.getBoundingClientRect().top;
+      const navTop = navRef.current.getBoundingClientRect().top;
+      // Show nav only when About section is in view
+      setShowNav(aboutTop <= 0);
+      // Fix nav when it reaches the top
+      setNavFixed(navTop <= 0 && aboutTop <= 0);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="app-root">
+      {/* Landing Page */}
+      <section className="landing-section">
+        <h1 className="landing-title">Hello</h1>
+        <button className="view-work-btn" onClick={scrollToAbout}>
+          View My Work
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      </section>
+
+      {/* About Me Section */}
+      <section className="about-section" ref={aboutRef}>
+        {/* Nav Bar */}
+        <nav
+          ref={navRef}
+          className={`about-nav${navFixed ? ' fixed' : ''}${showNav ? '' : ' hidden'}`}
+        >
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div className="about-content about" id="about">
+          <h2>About Me</h2>
+          <p>I'm Anna!!! Yay!</p>
+        </div>
+        <div className="about-content projects" id="projects">
+          <h2>Projects</h2>
+          <p>list projects here</p>
+        </div>
+        <div className="about-content contact" id="contact">
+          <h2>Contact</h2>
+          <p>my contact details</p>
+        </div>
+      </section>
+    </div>
+  );
 }
 
-export default App
+export default App;
