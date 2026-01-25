@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './App.css';
+import { Cat } from './Cat.jsx';
 
 function App() {
   const homeRef = useRef(null);
@@ -40,7 +41,7 @@ function App() {
 
   return (
     <div className="app-root">
-      {/* Landing Page */}
+      <Cat/>
       <section className="landing-section" ref={homeRef}>
         <h1 className="landing-title">Hello</h1>
         <button className="view-work-btn" onClick={scrollToAbout}>
@@ -48,9 +49,7 @@ function App() {
         </button>
       </section>
 
-      {/* About Me Section */}
       <section className="about-section" ref={aboutRef}>
-        {/* Nav Bar */}
         <nav
           ref={navRef}
           className={`about-nav${navFixed ? ' fixed' : ''}${showNav ? '' : ' hidden'}`}
