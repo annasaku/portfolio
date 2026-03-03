@@ -7,8 +7,8 @@ function useCat() {
   const [hasMovedMouse, setHasMovedMouse] = useState(false);
   // Place cat in bottom right corner on first load
   const [position, setPosition] = useState(() => {
-    const catWidth = 280;
-    const catHeight = 280;
+    const catWidth = 300;
+    const catHeight = 300;
     const padding = 20;
     const x = typeof window !== 'undefined' ? window.innerWidth - catWidth - padding : 200;
     const y = typeof window !== 'undefined' ? window.innerHeight - catHeight - padding : 200;
@@ -82,7 +82,7 @@ function useCat() {
 
   // movement
   const catPos = useRef(position);
-  const speed = 5;
+  const speed = 4;
 
   function getDirection(dx, dy) {
     const angle = Math.atan2(dy, dx);
@@ -150,11 +150,6 @@ function useCat() {
     }, delay);
     return () => clearInterval(interval);
   }, [animation, animations]);
-
-  // Reset frame to 0 when animation changes
-  useEffect(() => {
-    setFrame(0);
-  }, [animation]);
 
   // Return animations for Cat component to use
   return { position, animation, frame, animations };

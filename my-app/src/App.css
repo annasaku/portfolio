@@ -108,3 +108,7 @@ body, html, #root, .app-root {
 .projects {
   height: 200vh;
 }
+
+.contact {
+  height: 50vh;
+}
