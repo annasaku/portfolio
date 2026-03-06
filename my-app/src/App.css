@@ -32,25 +32,25 @@ body, html, #root, .app-root {
 }
 
 .landing-title {
-  font-size: 9rem;
+  font-size: 7rem;
   margin-bottom: 0.5rem;
   color: #ffffff;
-  font-family: "Jersey 10", sans-serif;
-  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
 }
 
 .landing-text {
   color: #ffffff;
   font-size: 2rem;
-  font-family: "Chiron GoRound TC", sans-serif;
-  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
   font-style: normal;
 }
 
 .view-btn-container {
-  margin: 50px;
+  margin-top: 2rem;
   display: block;
-  width: 800px;
+  width: 600px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -59,11 +59,12 @@ body, html, #root, .app-root {
 .view-btn {
   position: relative;
   display: block;
-  font-family: "Jersey 10", sans-serif;
-  font-size: 3rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
   color: #ffffff;
-  padding: 20px 150px;
-  background: #ffd350;
+  padding: 30px 100px;
+  background: rgba(0, 0, 0, 0.2);
   width: auto;
   z-index: 2;
   height: auto;
@@ -87,7 +88,7 @@ body, html, #root, .app-root {
   bottom: 10px;
   left: -10px;
   right: -10px;
-  background: #ffd350;
+  background: rgba(0, 0, 0, 0.2);
   z-index: -1;
 }
 .view-btn::after {
@@ -98,7 +99,7 @@ body, html, #root, .app-root {
   bottom: 4px;
   left: -6px;
   right: -6px;
-  background: #ffd350;
+  background: rgba(0, 0, 0, 0.2);
   z-index: -1;
 }
 

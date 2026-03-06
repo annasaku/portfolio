@@ -46,7 +46,7 @@ function App() {
       <div className='foreground'>
         <section className="landing-section" ref={homeRef}>
           <h1 className="landing-title">Hi, I'm Anna !</h1>
-          <h2 className='landing-text'>I'm a full-stack web developer, with <br></br>  a passion for creating 
+          <h2 className='landing-text'>I'm a UNSW Computer Science student, with<br></br> a passion for creating 
             meaningful and memorable projects.
           </h2>
           <div className='view-btn-container'>
