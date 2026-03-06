@@ -41,14 +41,19 @@ function App() {
 
   return (
     <div className="app-root">
-      <img src='assets/background.png' className='background'></img>
+      <img src='assets/background2.png' className='background'></img>
       <Cat/>
       <div className='foreground'>
         <section className="landing-section" ref={homeRef}>
-          <h1 className="landing-title">Hello</h1>
-          <button className="view-work-btn" onClick={scrollToAbout}>
-            View My Work
-          </button>
+          <h1 className="landing-title">Hi, I'm Anna !</h1>
+          <h2 className='landing-text'>I'm a full-stack web developer, with <br></br>  a passion for creating 
+            meaningful and memorable projects.
+          </h2>
+          <div className='view-btn-container'>
+            <div className="view-btn" onClick={scrollToAbout}>
+              VIEW MY WORK
+            </div>
+          </div>
         </section>
 
         <section className="about-section" ref={aboutRef}>
