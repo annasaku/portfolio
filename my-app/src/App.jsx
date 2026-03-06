@@ -41,39 +41,42 @@ function App() {
 
   return (
     <div className="app-root">
+      <img src='assets/background.png' className='background'></img>
       <Cat/>
-      <section className="landing-section" ref={homeRef}>
-        <h1 className="landing-title">Hello</h1>
-        <button className="view-work-btn" onClick={scrollToAbout}>
-          View My Work
-        </button>
-      </section>
+      <div className='foreground'>
+        <section className="landing-section" ref={homeRef}>
+          <h1 className="landing-title">Hello</h1>
+          <button className="view-work-btn" onClick={scrollToAbout}>
+            View My Work
+          </button>
+        </section>
 
-      <section className="about-section" ref={aboutRef}>
-        <nav
-          ref={navRef}
-          className={`about-nav${navFixed ? ' fixed' : ''}${showNav ? '' : ' hidden'}`}
-        >
-          <ul>
-            <li onClick={scrollToHome}>Home</li>
-            <li onClick={scrollToAbout}>About</li>
-            <li onClick={scrollToProjects}>Projects</li>
-            <li onClick={scrollToContact}>Contact</li>
-          </ul>
-        </nav>
-        <div className="about-content about" id="about" ref={aboutRef}>
-          <h2>About Me</h2>
-          <p>I'm Anna!!! Yay!</p>
-        </div>
-        <div className="about-content projects" id="projects" ref={projectsRef}>
-          <h2>Projects</h2>
-          <p>list projects here</p>
-        </div>
-        <div className="about-content contact" id="contact" ref={contactRef}>
-          <h2>Contact</h2>
-          <p>my contact details</p>
-        </div>
-      </section>
+        <section className="about-section" ref={aboutRef}>
+          <nav
+            ref={navRef}
+            className={`about-nav${navFixed ? ' fixed' : ''}${showNav ? '' : ' hidden'}`}
+          >
+            <ul>
+              <li onClick={scrollToHome}>Home</li>
+              <li onClick={scrollToAbout}>About</li>
+              <li onClick={scrollToProjects}>Projects</li>
+              <li onClick={scrollToContact}>Contact</li>
+            </ul>
+          </nav>
+          <div className="about-content about" id="about" ref={aboutRef}>
+            <h2>About Me</h2>
+            <p>I'm Anna!!! Yay!</p>
+          </div>
+          <div className="about-content projects" id="projects" ref={projectsRef}>
+            <h2>Projects</h2>
+            <p>list projects here</p>
+          </div>
+          <div className="about-content contact" id="contact" ref={contactRef}>
+            <h2>Contact</h2>
+            <p>my contact details</p>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

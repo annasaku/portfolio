@@ -10,13 +10,24 @@ body, html, #root, .app-root {
   background: #f8f9fa;
 }
 
+.background {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.foreground {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+}
+
 .landing-section {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
   text-align: center;
 }
 
@@ -47,14 +58,12 @@ body, html, #root, .app-root {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #fff;
   padding-top: 0;
   position: relative;
 }
 
 .about-nav {
   width: 100%;
-  background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   padding: 1rem 0;
   position: absolute;
