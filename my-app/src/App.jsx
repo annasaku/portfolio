@@ -4,8 +4,10 @@ import { Cat } from './Cat.jsx';
 
 function App() {
   const homeRef = useRef(null);
-  const aboutRef = useRef(null);
-  const projectsRef = useRef(null);
+  const furikakeRef = useRef(null);
+  const funwattleRef = useRef(null);
+  const DTIRef = useRef(null);
+  const airbrbRef = useRef(null);
   const contactRef = useRef(null);
   const navRef = useRef(null);
   const [navFixed, setNavFixed] = useState(false);
@@ -14,11 +16,17 @@ function App() {
   const scrollToHome = () => {
     homeRef.current.scrollIntoView({ behavior: 'smooth' });
   };
-  const scrollToAbout = () => {
-    aboutRef.current.scrollIntoView({ behavior: 'smooth' });
+  const scrollToFurikake = () => {
+    furikakeRef.current.scrollIntoView({ behavior: 'smooth' });
   };
-  const scrollToProjects = () => {
-    projectsRef.current.scrollIntoView({ behavior: 'smooth' });
+  const scrollToFunwattle = () => {
+    funwattleRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+  const scrollToDTI = () => {
+    DTIRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+  const scrollToAirbrb = () => {
+    airbrbRef.current.scrollIntoView({ behavior: 'smooth' });
   };
   const scrollToContact = () => {
     contactRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -27,8 +35,8 @@ function App() {
   // Handle nav bar fixed state
   useEffect(() => {
     const handleScroll = () => {
-      if (!aboutRef.current || !navRef.current) return;
-      const aboutTop = aboutRef.current.getBoundingClientRect().top;
+      if (!furikakeRef.current || !navRef.current) return;
+      const aboutTop = furikakeRef.current.getBoundingClientRect().top;
       const navTop = navRef.current.getBoundingClientRect().top;
       // Show nav only when About section is in view
       setShowNav(aboutTop <= 0);
@@ -51,35 +59,55 @@ function App() {
             meaningful and memorable projects.
           </h2>
           <div className='view-btn-container'>
-            <div className="view-btn" onClick={scrollToAbout}>
+            <div className="view-btn" onClick={scrollToFurikake}>
               VIEW MY WORK
             </div>
           </div>
         </section>
 
-        <section className="about-section" ref={aboutRef}>
+        <section className="about-section" ref={furikakeRef}>
           <nav
             ref={navRef}
             className={`about-nav${navFixed ? ' fixed' : ''}${showNav ? '' : ' hidden'}`}
           >
             <ul>
               <li onClick={scrollToHome}>Home</li>
-              <li onClick={scrollToAbout}>About</li>
-              <li onClick={scrollToProjects}>Projects</li>
+              <li onClick={scrollToFurikake}>Furikake</li>
+              <li onClick={scrollToFunwattle}>Funwattle</li>
+              <li onClick={scrollToDTI}>Dress to Impress</li>
+              <li onClick={scrollToAirbrb}>Airbrb</li>
               <li onClick={scrollToContact}>Contact</li>
             </ul>
           </nav>
-          <div className="about-content about" id="about" ref={aboutRef}>
-            <h2>About Me</h2>
-            <p>I'm Anna!!! Yay!</p>
+          <div className="about-content furikake" id="furikake" ref={furikakeRef}>
+            <div className="project furikake-text">
+              <h2>Furikake</h2>
+              <p>I'm Anna!!! Yay!</p>
+            </div>
           </div>
-          <div className="about-content projects" id="projects" ref={projectsRef}>
-            <h2>Projects</h2>
-            <p>list projects here</p>
+          <div className="about-content funwattle" id="funwattle" ref={funwattleRef}>
+            <div className="project funwattle-text">
+              <h2>Funwattle</h2>
+              <p>list projects here</p>
+            </div>
+          </div>
+          <div className="about-content dti" id="dti" ref={DTIRef}>
+            <div className="project dti-text">
+              <h2>Dress To Impress Anna</h2>
+              <p>list projects here</p>
+            </div>
+          </div>
+          <div className="about-content airbrb" id="airbrb" ref={airbrbRef}>
+            <div className="project airbrb-text">
+              <h2>Airbrb</h2>
+              <p>list projects here</p>
+            </div>
           </div>
           <div className="about-content contact" id="contact" ref={contactRef}>
-            <h2>Contact</h2>
-            <p>my contact details</p>
+            <div className="project contact-text">
+              <h2>Contact</h2>
+              <p>my contact details</p>
+            </div>
           </div>
         </section>
       </div>

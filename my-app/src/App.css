@@ -125,7 +125,7 @@ body, html, #root, .app-root {
 }
 
 .about-section {
-  margin-top: 350px;
+  margin-top: 400px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -175,23 +175,58 @@ body, html, #root, .app-root {
   opacity: 0;
   pointer-events: none;
 }
+
+
 .about-content {
-  min-width: 50%;
-  margin: 0 auto;
-  padding: 6rem 2rem 2rem 2rem;
-  text-align: left;
-  background-color: rgb(233, 229, 216);
+  width: 100vw;
 }
 
-.about {
-  height: 50vh;
+.furikake {
+  height: 90vh;
 }
 
-.projects {
-  margin-top: 200px;
-  height: 200vh;
+.funwattle {
+  height: 120vh;
+}
+
+.dti {
+  height: 120vh;
+}
+
+.airbrb {
+  height: 125vh;
 }
 
 .contact {
+}
+
+.project {
+  background-color: rgb(233, 229, 216, 0.3);
   height: 50vh;
+  width: 40vw;
+}
+
+.furikake-text {
+  margin-left: 5vw;
+  margin-top: 30vh;
+}
+
+.funwattle-text {
+  margin-left: 55vw;
+  margin-top: 30vh;
+}
+
+.dti-text {
+  margin-left: 5vw;
+  margin-top: 25vh;
+}
+
+.airbrb-text {
+  margin-left: 55vw;
+  margin-top: 25vh;
+}
+
+.contact-text {
+  margin-left: 5vw;
+  margin-top: 20vh;
 }
