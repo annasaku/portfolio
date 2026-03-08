@@ -42,6 +42,7 @@ function App() {
   return (
     <div className="app-root">
       <img src='assets/background2.png' className='background'></img>
+      <img src='assets/tumbleweed.png' className='tumbleweed'></img>
       <Cat/>
       <div className='foreground'>
         <section className="landing-section" ref={homeRef}>

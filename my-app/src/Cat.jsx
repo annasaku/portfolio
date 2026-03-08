@@ -7,9 +7,9 @@ function useCat() {
   const [hasMovedMouse, setHasMovedMouse] = useState(false);
   // Place cat in bottom right corner on first load
   const [position, setPosition] = useState(() => {
-    const catWidth = 300;
-    const catHeight = 300;
-    const padding = 20;
+    const catWidth = 350;
+    const catHeight = 350;
+    const padding = 100;
     const x = typeof window !== 'undefined' ? window.innerWidth - catWidth - padding : 200;
     const y = typeof window !== 'undefined' ? window.innerHeight - catHeight - padding : 200;
     return { x, y };
@@ -82,7 +82,7 @@ function useCat() {
 
   // movement
   const catPos = useRef(position);
-  const speed = 4;
+  const speed = 5;
 
   function getDirection(dx, dy) {
     const angle = Math.atan2(dy, dx);
@@ -166,7 +166,7 @@ export function Cat() {
           left: cat.position.x, 
           top: cat.position.y, 
           position: 'absolute',
-          zIndex: 1000
+          zIndex: 100
         }}
         className="cat"
         alt="cat sprite"
