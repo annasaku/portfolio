@@ -47,6 +47,25 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+  const addRainEffect = () => {
+    const furikakeSection = document.querySelector('.furikake');
+    if (!furikakeSection) return;
+
+    const numberOfDrops = 200;
+    for (let i = 0; i < numberOfDrops; i++) {
+      const raindrop = document.createElement('div');
+      raindrop.classList.add('raindrop');
+      raindrop.style.left = `${Math.random() * 100}%`;
+      raindrop.style.animationDelay = `${Math.random()}s`;
+      raindrop.style.animationDuration = `${0.5 + Math.random()}s`;
+      furikakeSection.appendChild(raindrop);
+    }
+  };
+
+  addRainEffect();
+}, []);
+
   return (
     <div className="app-root">
       <img src='assets/background2.png' className='background'></img>
