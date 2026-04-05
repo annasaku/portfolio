@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useMemo } from 'react';
 import './Cat.css';
 
-function useCat() {
+function useCat(currentSection) {
   const [animation, setAnimation] = useState("idle");
   const [frame, setFrame] = useState(0);
   const [hasMovedMouse, setHasMovedMouse] = useState(false);
@@ -16,42 +16,45 @@ function useCat() {
   });
 
   // Animation frames: 8 for idle, 4 for each movement
-  const animations = useMemo(() => ({
-    idle: [
-      "/assets/idle/idle_1.png",
-      "/assets/idle/idle_2.png",
-      "/assets/idle/idle_3.png",
-      "/assets/idle/idle_4.png",
-      "/assets/idle/idle_5.png",
-      "/assets/idle/idle_6.png",
-      "/assets/idle/idle_7.png",
-      "/assets/idle/idle_8.png",
-    ],
-    moveUp: [
-      "/assets/up/up_1.png",
-      "/assets/up/up_2.png",
-      "/assets/up/up_3.png",
-      "/assets/up/up_4.png",
-    ],
-    moveDown: [
-      "/assets/down/down_1.png",
-      "/assets/down/down_2.png",
-      "/assets/down/down_3.png",
-      "/assets/down/down_4.png",
-    ],
-    moveLeft: [
-      "/assets/left/left_1.png",
-      "/assets/left/left_2.png",
-      "/assets/left/left_3.png",
-      "/assets/left/left_4.png",
-    ],
-    moveRight: [
-      "/assets/right/right_1.png",
-      "/assets/right/right_2.png",
-      "/assets/right/right_3.png",
-      "/assets/right/right_4.png",
-    ]
-  }), []);
+  const animations = useMemo(() => {
+    const folder = currentSection === 'home' ? 'dirty' : 'wet';
+    return {
+      idle: [
+        `/assets/${folder}/idle/idle_1.png`,
+        `/assets/${folder}/idle/idle_2.png`,
+        `/assets/${folder}/idle/idle_3.png`,
+        `/assets/${folder}/idle/idle_4.png`,
+        `/assets/${folder}/idle/idle_5.png`,
+        `/assets/${folder}/idle/idle_6.png`,
+        `/assets/${folder}/idle/idle_7.png`,
+        `/assets/${folder}/idle/idle_8.png`,
+      ],
+      moveUp: [
+        `/assets/${folder}/up/up_1.png`,
+        `/assets/${folder}/up/up_2.png`,
+        `/assets/${folder}/up/up_3.png`,
+        `/assets/${folder}/up/up_4.png`,
+      ],
+      moveDown: [
+        `/assets/${folder}/down/down_1.png`,
+        `/assets/${folder}/down/down_2.png`,
+        `/assets/${folder}/down/down_3.png`,
+        `/assets/${folder}/down/down_4.png`,
+      ],
+      moveLeft: [
+        `/assets/${folder}/left/left_1.png`,
+        `/assets/${folder}/left/left_2.png`,
+        `/assets/${folder}/left/left_3.png`,
+        `/assets/${folder}/left/left_4.png`,
+      ],
+      moveRight: [
+        `/assets/${folder}/right/right_1.png`,
+        `/assets/${folder}/right/right_2.png`,
+        `/assets/${folder}/right/right_3.png`,
+        `/assets/${folder}/right/right_4.png`,
+      ]
+    };
+  }, [currentSection]);
 
   // mouse tracking
   const mouse = useRef({ x: 0, y: 0 });
@@ -82,7 +85,7 @@ function useCat() {
 
   // movement
   const catPos = useRef(position);
-  const speed = 5;
+  const speed = 8;
 
   function getDirection(dx, dy) {
     const angle = Math.atan2(dy, dx);
@@ -155,8 +158,8 @@ function useCat() {
   return { position, animation, frame, animations };
 }
 
-export function Cat() {
-  const cat = useCat();
+export function Cat({ currentSection }) {
+  const cat = useCat(currentSection);
   // Use cat.animations for correct frame
   return (
     <div className="cat-container">

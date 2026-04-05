@@ -29,9 +29,9 @@ body, html, #root, .app-root {
 @keyframes tumble {
   0% { transform: translateX(-700px) rotate(0deg); }
   10% { transform: translateX(-700px) rotate(0deg); }
-  35% { transform: translateX(15vw) translateY(-100px) rotate(120deg); }
-  60% { transform: translateX(60vw) translateY(0px) rotate(400deg); }
-  85% { transform: translateX(100vw) translateY(-100px) rotate(600deg); }
+  30% { transform: translateX(10vw) translateY(-100px) rotate(120deg); }
+  55% { transform: translateX(60vw) translateY(-10px) rotate(400deg); }
+  80% { transform: translateX(100vw) translateY(-100px) rotate(600deg); }
   100% { transform: translateX(100vw) translateY(-100px) rotate(600deg); }
 }
 

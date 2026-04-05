@@ -12,6 +12,44 @@ function App() {
   const navRef = useRef(null);
   const [navFixed, setNavFixed] = useState(false);
   const [showNav, setShowNav] = useState(false);
+  const [currentSection, setCurrentSection] = useState('home');
+
+  useEffect(() => {
+    const sections = [
+      { id: 'home', ref: homeRef },
+      { id: 'furikake', ref: furikakeRef },
+      { id: 'funwattle', ref: funwattleRef },
+      { id: 'dti', ref: DTIRef },
+      { id: 'airbrb', ref: airbrbRef },
+      { id: 'contact', ref: contactRef },
+    ];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setCurrentSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach((section) => {
+      if (section.ref.current) {
+        observer.observe(section.ref.current);
+      }
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        if (section.ref.current) {
+          observer.unobserve(section.ref.current);
+        }
+      });
+    };
+
+  }, []);
 
   const scrollToHome = () => {
     homeRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -70,9 +108,9 @@ function App() {
     <div className="app-root">
       <img src='assets/background2.png' className='background'></img>
       <img src='assets/tumbleweed.png' className='tumbleweed'></img>
-      <Cat/>
+      <Cat currentSection={currentSection} />
       <div className='foreground'>
-        <section className="landing-section" ref={homeRef}>
+        <section className="landing-section" ref={homeRef} id='home'>
           <h1 className="landing-title">Hi, I'm Anna !</h1>
           <h2 className='landing-text'>I'm a UNSW Computer Science student, with<br></br> a passion for creating 
             meaningful and memorable projects.
@@ -84,7 +122,7 @@ function App() {
           </div>
         </section>
 
-        <section className="about-section" ref={furikakeRef}>
+        <section className="about-section">
           <nav
             ref={navRef}
             className={`about-nav${navFixed ? ' fixed' : ''}${showNav ? '' : ' hidden'}`}
