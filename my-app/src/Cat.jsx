@@ -17,7 +17,17 @@ function useCat(currentSection) {
 
   // Animation frames: 8 for idle, 4 for each movement
   const animations = useMemo(() => {
-    const folder = currentSection === 'home' ? 'dirty' : 'wet';
+    const folderMap = {
+      home: 'dirty',
+      furikake: 'wet',
+      funwattle: 'leaf',
+      dti: 'fish',
+      airbrb: 'flower',
+      contact: 'pet',
+    };
+    const folder = folderMap[currentSection] ?? 'dirty';
+
+
     return {
       idle: [
         `/assets/${folder}/idle/idle_1.png`,
