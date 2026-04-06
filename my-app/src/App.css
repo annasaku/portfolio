@@ -42,7 +42,7 @@ body, html, #root, .app-root {
 }
 
 .landing-section {
-  margin-top: -120px;
+  margin-top: 0px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -52,17 +52,17 @@ body, html, #root, .app-root {
 }
 
 .landing-title {
-  font-size: 6rem;
+  font-size: 7rem;
   margin-bottom: 0.5rem;
   color: #ffffff;
-  font-family: "Roboto", sans-serif;
+  font-family: "Caveat", cursive;
   font-weight: 500;
 }
 
 .landing-text {
   color: #ffffff;
-  font-size: 1.5rem;
-  font-family: "Roboto", sans-serif;
+  font-size: 2.5rem;
+  font-family: "Caveat", cursive;
   font-weight: 400;
   font-style: normal;
 }
@@ -79,11 +79,11 @@ body, html, #root, .app-root {
 .view-btn {
   position: relative;
   display: block;
-  font-family: "Roboto", sans-serif;
+  font-family: "Nanum Pen Script", cursive;
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #ffffff;
-  padding: 30px 100px;
+  padding: 20px 100px;
   margin-top: 50px;
   background: rgba(0, 0, 0, 0.2);
   width: auto;

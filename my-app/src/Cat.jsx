@@ -70,22 +70,9 @@ function useCat(currentSection) {
     return () => window.removeEventListener("mousemove", handleMove);
   }, [hasMovedMouse]);
 
-  // useEffect(() => {
-  //   lastMouseMove.current = Date.now();
-  // }, []);
-
-  // useEffect(() => {
-  //   const handleMove = (e) => {
-  //     mouse.current = { x: e.clientX, y: e.clientY };
-  //     lastMouseMove.current = Date.now();
-  //   };
-  //   window.addEventListener("mousemove", handleMove);
-  //   return () => window.removeEventListener("mousemove", handleMove);
-  // }, []);
-
   // movement
   const catPos = useRef(position);
-  const speed = 8;
+  const speed = 6;
 
   function getDirection(dx, dy) {
     const angle = Math.atan2(dy, dx);
@@ -172,7 +159,6 @@ export function Cat({ currentSection }) {
           zIndex: 100
         }}
         className="cat"
-        alt="cat sprite"
       />
 
     </div>
