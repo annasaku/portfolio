@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './App.css';
 import { Cat } from './Cat.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Carousel from 'react-bootstrap/Carousel';
 
 function App() {
   const homeRef = useRef(null);
@@ -136,12 +138,59 @@ function App() {
               <li onClick={scrollToContact}>Contact</li>
             </ul>
           </nav>
+
+
           <div className="about-content furikake" id="furikake" ref={furikakeRef}>
             <div className="project furikake-text">
-              <h2>Furikake</h2>
-              <p>I'm Anna!!! Yay!</p>
+              <div className="project-heading">Furikake</div>
+              <p>
+                Furikake is a browser extension that helps Japanese language learners read kanji by displaying furigana (phonetic readings) based on their JLPT level.
+              </p>
+              <p>
+                Unlike other extensions, it omits furigana for kanji within the user's level to promote natural reading practice.
+                <br></br>
+              </p>
+              <p1>JavaScript, HTML, and CSS <br></br> </p1>
+              <p2>
+                <a href="https://chromewebstore.google.com/detail/furikake/megnkfpahhjagnpkmcdfennbmcanpfmg" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255, 255, 255, 0.5)', textDecoration: 'underline'}}>Link to Chrome Web Store<br></br></a>
+              </p2>
+              <p2>
+                <a href="https://github.com/annasaku/Furikake" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255, 255, 255, 0.5)', textDecoration: 'underline'}}>Link to Github</a>
+              </p2>
+            </div>
+            <div className="carousel furikake-carousel">
+              <Carousel data-bs-theme="dark">
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="/public/assets/furikake/furikake_1.png"
+                    alt="Furikake Screenshot 1"
+                    style={{ borderRadius: '10px' }}
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="/public/assets/furikake/furikake_2.png"
+                    alt="Furikake Screenshot 2"
+                    style={{ borderRadius: '10px' }}
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="/public/assets/furikake/furikake_3.png"
+                    alt="Furikake Screenshot 3"
+                    style={{ borderRadius: '10px' }}
+                  />
+                </Carousel.Item>
+              </Carousel>
             </div>
           </div>
+
+
+
+
           <div className="about-content funwattle" id="funwattle" ref={funwattleRef}>
             <div className="project funwattle-text">
               <h2>Funwattle</h2>

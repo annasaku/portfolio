@@ -3,6 +3,7 @@ body, html, #root, .app-root {
   width: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .app-root {
@@ -49,6 +50,8 @@ body, html, #root, .app-root {
   align-items: center;
   justify-content: center;
   text-align: center;
+  width: 100vw;
+  overflow: hidden;
 }
 
 .landing-title {
@@ -136,17 +139,20 @@ body, html, #root, .app-root {
 }
 
 .about-nav {
+  font-family: "Nanum Pen Script", cursive;
+  font-size: 30px;
+  color: white;
   width: 100%;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 1;
   transition: opacity 0.3s, position 0.3s;
   z-index: 9999;
   display: flex;
   justify-content: center;
+  background-color: rgba(186, 175, 145, 0.9);
 }
 .about-nav ul {
   list-style: none;
@@ -176,15 +182,33 @@ body, html, #root, .app-root {
   pointer-events: none;
 }
 
-
 .about-content {
   width: 100vw;
 }
 
+
+
 .furikake {
   height: 90vh;
+  width: 100vw;
+  margin-top: 8vh;
   position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project {
+  height: 60vh;
+  width: 30vw;
+  padding: 3rem;
+  border-radius: 15px;
+}
+
+.carousel {
+  width: 30vw;
+  margin-right: 10vw;
 }
 
 .furikake .raindrop {
@@ -195,7 +219,6 @@ body, html, #root, .app-root {
   top: -10px;
   animation: fall 1s infinite linear;
 }
-
 @keyframes fall {
   0% {
     transform: translateY(-100%);
@@ -205,6 +228,39 @@ body, html, #root, .app-root {
     transform: translateY(100vh);
     opacity: 0;
   }
+}
+
+.furikake-text {
+  margin-left: 12vw;
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.project-heading {
+  margin-top: -40px;
+  font-family: "Caveat", cursive;
+  font-weight: 600;
+  font-size: 90px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+p1 {
+  font-family: "Caveat", cursive;
+  font-weight: 600;
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+p2 {
+  font-family: "Caveat", cursive;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+p {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 22px;
 }
 
 .funwattle {
@@ -220,17 +276,6 @@ body, html, #root, .app-root {
 }
 
 .contact {
-}
-
-.project {
-  background-color: rgb(233, 229, 216, 0.3);
-  height: 50vh;
-  width: 40vw;
-}
-
-.furikake-text {
-  margin-left: 5vw;
-  margin-top: 30vh;
 }
 
 .funwattle-text {
