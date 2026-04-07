@@ -128,7 +128,7 @@ body, html, #root, .app-root {
 }
 
 .about-section {
-  margin-top: 400px;
+  margin-top: 300px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -182,16 +182,9 @@ body, html, #root, .app-root {
   pointer-events: none;
 }
 
-.about-content {
-  width: 100vw;
-}
-
-
-
 .furikake {
   height: 90vh;
   width: 100vw;
-  margin-top: 8vh;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -199,14 +192,7 @@ body, html, #root, .app-root {
   align-items: center;
 }
 
-.project {
-  height: 60vh;
-  width: 30vw;
-  padding: 3rem;
-  border-radius: 15px;
-}
-
-.carousel {
+.furikake-carousel {
   width: 30vw;
   margin-right: 10vw;
 }
@@ -231,9 +217,11 @@ body, html, #root, .app-root {
 }
 
 .furikake-text {
+  margin-top: 10vh;
+  height: 60vh;
+  width: 30vw;
   margin-left: 12vw;
   color: rgb(255, 255, 255);
-  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .project-heading {
@@ -263,8 +251,44 @@ p {
   font-size: 22px;
 }
 
+p3 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+p4 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
 .funwattle {
-  height: 120vh;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.funwattle-text {
+  margin-right: 5vw;
+  margin-top: -10vh;
+  width: 40vw;
+  height: 60vh;
+  color: rgb(255, 255, 255);
+}
+
+.funwattle-carousel {
+  width: 25vw;
+  margin-left: 10vw;
+  margin-top: 12vh;
+}
+
+.carousel-text {
+  margin-top: 50vh;
 }
 
 .dti {
@@ -276,11 +300,6 @@ p {
 }
 
 .contact {
-}
-
-.funwattle-text {
-  margin-left: 55vw;
-  margin-top: 30vh;
 }
 
 .dti-text {

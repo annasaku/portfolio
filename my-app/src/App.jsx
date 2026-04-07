@@ -140,8 +140,8 @@ function App() {
           </nav>
 
 
-          <div className="about-content furikake" id="furikake" ref={furikakeRef}>
-            <div className="project furikake-text">
+          <div className="furikake" id="furikake" ref={furikakeRef}>
+            <div className="furikake-text">
               <div className="project-heading">Furikake</div>
               <p>
                 Furikake is a browser extension that helps Japanese language learners read kanji by displaying furigana (phonetic readings) based on their JLPT level.
@@ -152,10 +152,10 @@ function App() {
               </p>
               <p1>JavaScript, HTML, and CSS <br></br> </p1>
               <p2>
-                <a href="https://chromewebstore.google.com/detail/furikake/megnkfpahhjagnpkmcdfennbmcanpfmg" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255, 255, 255, 0.5)', textDecoration: 'underline'}}>Link to Chrome Web Store<br></br></a>
+                <a href="https://chromewebstore.google.com/detail/furikake/megnkfpahhjagnpkmcdfennbmcanpfmg" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'underline'}}>Link to Chrome Web Store<br></br></a>
               </p2>
               <p2>
-                <a href="https://github.com/annasaku/Furikake" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255, 255, 255, 0.5)', textDecoration: 'underline'}}>Link to Github</a>
+                <a href="https://github.com/annasaku/Furikake" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'underline'}}>Link to Github</a>
               </p2>
             </div>
             <div className="carousel furikake-carousel">
@@ -189,14 +189,61 @@ function App() {
           </div>
 
 
-
-
           <div className="about-content funwattle" id="funwattle" ref={funwattleRef}>
-            <div className="project funwattle-text">
-              <h2>Funwattle</h2>
-              <p>list projects here</p>
+            <div className="carousel funwattle-carousel">
+              <Carousel interval={null}>
+                <Carousel.Item>
+                  <video className="d-block w-100" controls>
+                    <source src="/public/assets/funwattle/1.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <video className="d-block w-100" controls>
+                    <source src="/public/assets/funwattle/3.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <video className="d-block w-100" controls>
+                    <source src="/public/assets/funwattle/4.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </Carousel.Item>
+              </Carousel>
+            </div>
+            <div className="funwattle-text">
+              <div className="project-heading">Funwattle</div>
+              <p>
+                In a recent group project I designed and built the Child Dashboard frontend for a speech therapy app. The mobile app aimed to use gamified features to make speech therapy more fun and accessible to children who require language and communication support.
+              </p>
+              <p3>Features:</p3>
+              <ul>
+                <p4>
+                  Gamified elements such as blooming wattle flowers for completed exercises, and customizable mascots with clothing options users can unlock by completing exercises.
+                  Australian native flora and fauna motif with bright colours to appeal to children.
+                </p4>
+              </ul>
+              <p3>Optimisations:</p3>
+              <ul>
+                <p4>
+                  <strong>Reusability:</strong> Designed various exercise templates to dynamically load question data based on exercise type, eliminating the need to create separate files for each exercise, improving code reusability.
+                  <br></br>
+                  <br></br>
+                </p4>
+                <p4>
+                  <strong>Extensibility:</strong> The use of templates allows for easy addition of new exercises, as clients can simply update question and answer data in the backend without modifying the frontend code, making the system highly maintainable and scalable.
+                </p4>
+              </ul>
+              <p1>React Native with Expo, Expo Router<br></br> </p1>
+              <p1>Typescript and Fetch API <br></br> </p1>
             </div>
           </div>
+
+
+
+
+
           <div className="about-content dti" id="dti" ref={DTIRef}>
             <div className="project dti-text">
               <h2>Dress To Impress Anna</h2>
