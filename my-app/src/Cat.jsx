@@ -157,6 +157,11 @@ function useCat(currentSection) {
 
 export function Cat({ currentSection }) {
   const cat = useCat(currentSection);
+
+  const handleImageError = (e) => {
+    e.target.style.display = "none"; // Hide the image if it fails to load
+  };
+
   // Use cat.animations for correct frame
   return (
     <div className="cat-container">
@@ -169,6 +174,7 @@ export function Cat({ currentSection }) {
           zIndex: 100
         }}
         className="cat"
+        onError={handleImageError}
       />
 
     </div>
