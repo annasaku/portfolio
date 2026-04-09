@@ -261,7 +261,7 @@ function App() {
               <Carousel data-bs-theme="dark" interval={null} keyboard={false}>
                 <Carousel.Item>
                   <video className="d-block w-100" controls>
-                    <source src="/public/assets/dtianna/1.mov" type="video/mp4" />
+                    <source src="/public/assets/dtianna/1.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </Carousel.Item>
