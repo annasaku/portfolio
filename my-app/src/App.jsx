@@ -164,7 +164,7 @@ function App() {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="/public/assets/furikake/furikake_1.png"
+                    src="assets/furikake/furikake_1.png"
                     alt="Furikake Screenshot 1"
                     style={{ borderRadius: '10px' }}
                   />
@@ -172,7 +172,7 @@ function App() {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="/public/assets/furikake/furikake_2.png"
+                    src="assets/furikake/furikake_2.png"
                     alt="Furikake Screenshot 2"
                     style={{ borderRadius: '10px' }}
                   />
@@ -180,7 +180,7 @@ function App() {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="/public/assets/furikake/furikake_3.png"
+                    src="assets/furikake/furikake_3.png"
                     alt="Furikake Screenshot 3"
                     style={{ borderRadius: '10px' }}
                   />
@@ -195,19 +195,19 @@ function App() {
               <Carousel interval={null}>
                 <Carousel.Item>
                   <video className="d-block w-100" controls>
-                    <source src="/public/assets/funwattle/1.mp4" type="video/mp4" />
+                    <source src="assets/funwattle/1.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </Carousel.Item>
                 <Carousel.Item>
                   <video className="d-block w-100" controls>
-                    <source src="/public/assets/funwattle/3.mp4" type="video/mp4" />
+                    <source src="assets/funwattle/3.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </Carousel.Item>
                 <Carousel.Item>
                   <video className="d-block w-100" controls>
-                    <source src="/public/assets/funwattle/4.mp4" type="video/mp4" />
+                    <source src="assets/funwattle/4.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </Carousel.Item>
@@ -261,28 +261,28 @@ function App() {
               <Carousel data-bs-theme="dark" interval={null} keyboard={false}>
                 <Carousel.Item>
                   <video className="d-block w-100" controls>
-                    <source src="/public/assets/dtianna/1.mp4" type="video/mp4" />
+                    <source src="assets/dtianna/1.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="/public/assets/dtianna/2.png"
+                    src="assets/dtianna/2.png"
                     alt="DTI Anna Screenshot 1"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="/public/assets/dtianna/3.png"
+                    src="assets/dtianna/3.png"
                     alt="DTI Anna Screenshot 2"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="/public/assets/dtianna/4.png"
+                    src="assets/dtianna/4.png"
                     alt="DTI Anna Screenshot 3"
                   />
                 </Carousel.Item>
@@ -296,47 +296,47 @@ function App() {
               <Carousel interval={null}>
                 <Carousel.Item>
                   <video className="d-block w-100" controls>
-                    <source src="/public/assets/airbrb/1.mp4" type="video/mp4" />
+                    <source src="assets/airbrb/1.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </Carousel.Item>
                 <Carousel.Item>
                   <video className="d-block w-100" controls>
-                    <source src="/public/assets/airbrb/2.mp4" type="video/mp4" />
+                    <source src="assets/airbrb/2.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </Carousel.Item>
                 <Carousel.Item>
                   <video className="d-block w-100" controls>
-                    <source src="/public/assets/airbrb/3.mov" type="video/mp4" />
+                    <source src="assets/airbrb/3.mov" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="/public/assets/airbrb/4.png"
+                    src="assets/airbrb/4.png"
                     alt="Airbrb Screenshot 1"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="/public/assets/airbrb/5.png"
+                    src="assets/airbrb/5.png"
                     alt="Airbrb Screenshot 2"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="/public/assets/airbrb/6.png"
+                    src="assets/airbrb/6.png"
                     alt="Airbrb Screenshot 3"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="/public/assets/airbrb/7.png"
+                    src="assets/airbrb/7.png"
                     alt="Airbrb Screenshot 4"
                   />
                 </Carousel.Item>
