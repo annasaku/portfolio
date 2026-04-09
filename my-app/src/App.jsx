@@ -383,7 +383,6 @@ function App() {
               <p1>Please send an email for any enquiries.</p1>
               <br></br>
               <br></br>
-              <br></br>
               <p5>I hope you enjoyed the journey of our cat friend!</p5>
             </div>
           </div>
