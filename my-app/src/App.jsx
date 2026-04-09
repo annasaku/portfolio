@@ -63,6 +63,7 @@ function App() {
     funwattleRef.current.scrollIntoView({ behavior: 'smooth' });
   };
   const scrollToDTI = () => {
+    console.log('clicked dti!!!!');
     DTIRef.current.scrollIntoView({ behavior: 'smooth' });
   };
   const scrollToAirbrb = () => {
@@ -241,21 +242,136 @@ function App() {
           </div>
 
 
-
-
-
-          <div className="about-content dti" id="dti" ref={DTIRef}>
-            <div className="project dti-text">
-              <h2>Dress To Impress Anna</h2>
-              <p>list projects here</p>
+          <div className="dti" id="dti" ref={DTIRef}>
+            <div className="dti-text">
+              <div className="project-heading">DTI Anna</div>
+              <p>
+                Dress to Impress Anna (DTI Anna) is a multiplayer online game where you competitively dress-up an avatar based on a theme, inspired by the Roblox game Dress to Impress (DTI). 
+              </p>
+              <p>
+                This game was built as a gift for my friends so it is slightly personalised to them, but I believe there is fun everyone can have with it!
+                <br></br>
+              </p>
+              <p1>HTML, CSS, JavaScript, Node.js, Socket.IO<br></br><br></br> </p1>
+              <p2>
+                <a href="https://github.com/annasaku/Dress-to-Impress-Anna" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'underline'}}>Link to Github</a>
+              </p2>
+            </div>
+            <div className="carousel dti-carousel">
+              <Carousel data-bs-theme="dark" interval={null} keyboard={false}>
+                <Carousel.Item>
+                  <video className="d-block w-100" controls>
+                    <source src="/public/assets/dtianna/1.mov" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="/public/assets/dtianna/2.png"
+                    alt="DTI Anna Screenshot 1"
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="/public/assets/dtianna/3.png"
+                    alt="DTI Anna Screenshot 2"
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="/public/assets/dtianna/4.png"
+                    alt="DTI Anna Screenshot 3"
+                  />
+                </Carousel.Item>
+              </Carousel>
             </div>
           </div>
-          <div className="about-content airbrb" id="airbrb" ref={airbrbRef}>
-            <div className="project airbrb-text">
-              <h2>Airbrb</h2>
-              <p>list projects here</p>
+
+
+          <div className="airbrb" id="airbrb" ref={airbrbRef}>
+            <div className="carousel airbrb-carousel">
+              <Carousel interval={null}>
+                <Carousel.Item>
+                  <video className="d-block w-100" controls>
+                    <source src="/public/assets/airbrb/1.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <video className="d-block w-100" controls>
+                    <source src="/public/assets/airbrb/2.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <video className="d-block w-100" controls>
+                    <source src="/public/assets/airbrb/3.mov" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="/public/assets/airbrb/4.png"
+                    alt="Airbrb Screenshot 1"
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="/public/assets/airbrb/5.png"
+                    alt="Airbrb Screenshot 2"
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="/public/assets/airbrb/6.png"
+                    alt="Airbrb Screenshot 3"
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="/public/assets/airbrb/7.png"
+                    alt="Airbrb Screenshot 4"
+                  />
+                </Carousel.Item>
+              </Carousel>
+            </div>
+            <div className="airbrb-text">
+              <div className="project-heading airbrb-heading">Airbrb</div>
+              <p>
+                Airbrb is an accommodation booking website inspired by Airbnb, where users can search accommodations, book stays, post listings, manage listings and write reviews. The frontend was built as part of a UNSW assignment.
+              </p>
+              <p3>Optimisations:</p3>
+              <ul>
+                <li>
+                  <strong>Reusability:</strong> Developed reusable components for listings, reviews, and booking forms, to improve maintainability.
+                </li>
+                <li>
+                  <strong>Dynamic Rendering:</strong> Implemented dynamic rendering for listing cards and search results, allowing the UI to update in real-time based on user input and filters.
+                </li>
+                <li>
+                  <strong>Accessibility:</strong> Followed WCAG guidelines to ensure frontend is accessible, including proper ARIA roles and keyboard navigation support.
+                </li>
+                <li>
+                  <strong>Scalability:</strong> Designed the frontend to be modular and scalable, making it easy to add new features like additional filters or listing categories without major refactoring.
+                </li>
+              </ul>
+              <p1>Vite + React, React Router, Axios, React Bootstrap, ESLint </p1>
+              <br></br>
+              <br></br>
+              <p2>
+                <a href="https://github.com/annasaku/airbrb-deploy" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'underline'}}>Link to Github</a>
+              </p2>
             </div>
           </div>
+
+
           <div className="about-content contact" id="contact" ref={contactRef}>
             <div className="project contact-text">
               <h2>Contact</h2>

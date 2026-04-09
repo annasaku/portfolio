@@ -139,9 +139,6 @@ body, html, #root, .app-root {
 }
 
 .about-nav {
-  font-family: "Nanum Pen Script", cursive;
-  font-size: 30px;
-  color: white;
   width: 100%;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   padding: 0.5rem 0;
@@ -161,15 +158,16 @@ body, html, #root, .app-root {
   margin: 0;
   padding: 0;
 }
-.about-nav li a {
+.about-nav li {
   text-decoration: none;
-  color: #222;
-  font-weight: 500;
-  font-size: 1.1rem;
+  color: #ffffff;
+  font-family: "Nanum Pen Script", cursive;
+  font-weight: 400;
+  font-size: 30px;
   transition: color 0.2s;
 }
-.about-nav li a:hover {
-  color: #e75480;
+.about-nav li:hover {
+  color: #cf6868;
 }
 .about-nav.fixed {
   position: fixed;
@@ -242,7 +240,8 @@ p1 {
 p2 {
   font-family: "Caveat", cursive;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 40px;
+  transition: color 0.2s;
 }
 
 p {
@@ -264,7 +263,7 @@ p4 {
 }
 
 .funwattle {
-  height: 100vh;
+  height: 115vh;
   width: 100vw;
   position: relative;
   overflow: hidden;
@@ -275,7 +274,7 @@ p4 {
 
 .funwattle-text {
   margin-right: 5vw;
-  margin-top: -10vh;
+  margin-top: -25vh;
   width: 40vw;
   height: 60vh;
   color: rgb(255, 255, 255);
@@ -284,32 +283,80 @@ p4 {
 .funwattle-carousel {
   width: 25vw;
   margin-left: 10vw;
-  margin-top: 12vh;
+  margin-top: -5vh;
 }
 
 .carousel-text {
   margin-top: 50vh;
 }
 
+
 .dti {
   height: 120vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.airbrb {
-  height: 125vh;
+.dti-carousel {
+  width: 35vw;
+  margin-right: 10vw;
+  margin-top: -20vh;
+  object-fit: cover;
 }
 
-.contact {
+.dti-carousel .carousel-item img {
+  width: 35vw;
+  object-fit: cover;
 }
 
 .dti-text {
-  margin-left: 5vw;
-  margin-top: 25vh;
+  margin-top: -20vh;
+  height: 60vh;
+  width: 30vw;
+  margin-left: 12vw;
+  color: rgb(255, 255, 255);
+}
+
+
+.airbrb {
+  height: 125vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .airbrb-text {
-  margin-left: 55vw;
-  margin-top: 25vh;
+  margin-top: -20vh;
+  margin-right: 5vw;
+  width: 40vw;
+  height: 80vh;
+  color: rgb(255, 255, 255);
+  background-color: rgba(142, 155, 70, 0.6);
+  border-radius: 15px;
+  padding: 30px;
+}
+.airbrb-text ul {
+  list-style-type: square;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+.airbrb-carousel {
+  width: 45vw;
+  margin-left: 5vw;
+  margin-top: -20vh;
+}
+
+
+
+.contact {
 }
 
 .contact-text {
