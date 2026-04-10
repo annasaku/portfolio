@@ -76,8 +76,14 @@ function useCat(currentSection) {
       lastMouseMove.current = Date.now();
       if (!hasMovedMouse) setHasMovedMouse(true);
     };
-    window.addEventListener("mousemove", handleMove);
-    return () => window.removeEventListener("mousemove", handleMove);
+
+    const debouncedHandleMove = (e) => {
+      clearTimeout(lastMouseMove.current);
+      lastMouseMove.current = setTimeout(() => handleMove(e), 16);
+    };
+
+    window.addEventListener('mousemove', debouncedHandleMove);
+    return () => window.removeEventListener('mousemove', debouncedHandleMove);
   }, [hasMovedMouse]);
 
   // movement
