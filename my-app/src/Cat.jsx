@@ -141,9 +141,11 @@ function useCat(currentSection) {
 
   // frame stepping
   useEffect(() => {
-    let delay = 220;
+    let delay = 250;
+    // let delay = 220;
     if (animation !== "idle") {
-      delay = 110; // animation is faster for movement
+      delay = 160; // animation is faster for movement
+      // delay = 110; // animation is faster for movement
     }
     const interval = setInterval(() => {
       setFrame((f) => (f + 1) % animations[animation].length);
