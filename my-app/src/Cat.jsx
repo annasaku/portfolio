@@ -9,8 +9,10 @@ function useCat(currentSection) {
   const [animation, setAnimation] = useState("idle");
   const [frame, setFrame] = useState(0);
   const [hasMovedMouse, setHasMovedMouse] = useState(false);
-  // Place cat in bottom right corner on first load
-  const [position, setPosition] = useState(() => {
+
+  const catRef = useRef(null); // ref to the DOM img element
+
+  const [position] = useState(() => {
     const catWidth = 350;
     const catHeight = 350;
     const padding = 100;
@@ -19,7 +21,6 @@ function useCat(currentSection) {
     return { x, y };
   });
 
-  // Animation frames: 8 for idle, 4 for each movement
   const animations = useMemo(() => {
     const folderMap = {
       home: 'dirty',
@@ -31,172 +32,143 @@ function useCat(currentSection) {
     };
     const folder = folderMap[currentSection] ?? 'dirty';
 
-
     return {
-      idle: [
-        `/assets/${folder}/idle/idle_1.png`,
-        `/assets/${folder}/idle/idle_2.png`,
-        `/assets/${folder}/idle/idle_3.png`,
-        `/assets/${folder}/idle/idle_4.png`,
-        `/assets/${folder}/idle/idle_5.png`,
-        `/assets/${folder}/idle/idle_6.png`,
-        `/assets/${folder}/idle/idle_7.png`,
-        `/assets/${folder}/idle/idle_8.png`,
-      ],
-      moveUp: [
-        `/assets/${folder}/up/up_1.png`,
-        `/assets/${folder}/up/up_2.png`,
-        `/assets/${folder}/up/up_3.png`,
-        `/assets/${folder}/up/up_4.png`,
-      ],
-      moveDown: [
-        `/assets/${folder}/down/down_1.png`,
-        `/assets/${folder}/down/down_2.png`,
-        `/assets/${folder}/down/down_3.png`,
-        `/assets/${folder}/down/down_4.png`,
-      ],
-      moveLeft: [
-        `/assets/${folder}/left/left_1.png`,
-        `/assets/${folder}/left/left_2.png`,
-        `/assets/${folder}/left/left_3.png`,
-        `/assets/${folder}/left/left_4.png`,
-      ],
-      moveRight: [
-        `/assets/${folder}/right/right_1.png`,
-        `/assets/${folder}/right/right_2.png`,
-        `/assets/${folder}/right/right_3.png`,
-        `/assets/${folder}/right/right_4.png`,
-      ]
+      idle: Array.from({ length: 8 }, (_, i) => `/assets/${folder}/idle/idle_${i + 1}.png`),
+      moveUp: Array.from({ length: 4 }, (_, i) => `/assets/${folder}/up/up_${i + 1}.png`),
+      moveDown: Array.from({ length: 4 }, (_, i) => `/assets/${folder}/down/down_${i + 1}.png`),
+      moveLeft: Array.from({ length: 4 }, (_, i) => `/assets/${folder}/left/left_${i + 1}.png`),
+      moveRight: Array.from({ length: 4 }, (_, i) => `/assets/${folder}/right/right_${i + 1}.png`),
     };
   }, [currentSection]);
 
-  // mouse tracking
-  const mouse = useRef({ x: 0, y: 0 });
-  const lastMouseMove = useRef(0);
-
+  // Preload images whenever animations change
   useEffect(() => {
-    const handleMove = (e) => {
-      mouse.current = { x: e.pageX, y: e.pageY };
-      lastMouseMove.current = Date.now();
-      if (!hasMovedMouse) setHasMovedMouse(true);
-    };
-    window.addEventListener("mousemove", handleMove);
-    return () => window.removeEventListener("mousemove", handleMove);
-  }, [hasMovedMouse]);
-
-  // movement
-  const catPos = useRef(position);
-  const speed = 6;
-
-  function getDirection(dx, dy) {
-    const angle = Math.atan2(dy, dx);
-
-    if (angle >= -Math.PI / 4 && angle < Math.PI / 4) return "Right";
-    if (angle >= Math.PI / 4 && angle < (3 * Math.PI) / 4) return "Down";
-    if (angle < -Math.PI / 4 && angle >= (-3 * Math.PI) / 4) return "Up";
-    return "Left";
-  }
-
-  useEffect(() => {
-    let animationId;
-
-    function update() {
-      if (!hasMovedMouse) {
-        setAnimation("idle");
-        animationId = requestAnimationFrame(update);
-        return;
-      }
-      const { x: mx, y: my } = mouse.current;
-      const { x, y } = catPos.current;
-      const dx = mx - x;
-      const dy = my - y;
-      const dist = Math.hypot(dx, dy);
-
-      // Only go idle when cat is near mouse (direction-specific thresholds)
-      const dir = getDirection(dx, dy);
-      let moving = false;
-      if (dir === "Right") {
-        moving = dx > 200;
-      } else if (dir === "Left") {
-        moving = dx < -30;
-      } else if (dir === "Up") {
-        moving = dy < -30;
-      } else if (dir === "Down") {
-        moving = dy > 240;
-      }
-
-      if (moving) {
-        console.log("now moving!");
-        console.log("distance is ", dist);
-        catPos.current.x += (dx / dist) * speed;
-        catPos.current.y += (dy / dist) * speed;
-        setAnimation(`move${dir}`);
-      } else {
-        console.log("now idle!");
-        setAnimation("idle");
-      }
-      // Update state so React re-renders
-      setPosition({ x: catPos.current.x, y: catPos.current.y });
-      animationId = requestAnimationFrame(update);
-    }
-    animationId = requestAnimationFrame(update);
-    return () => cancelAnimationFrame(animationId);
-  }, [hasMovedMouse]);
-
-  // frame stepping
-  useEffect(() => {
-    let delay = 250;
-    // let delay = 220;
-    if (animation !== "idle") {
-      delay = 160; // animation is faster for movement
-      // delay = 110; // animation is faster for movement
-    }
-    const interval = setInterval(() => {
-      setFrame((f) => (f + 1) % animations[animation].length);
-    }, delay);
-    return () => clearInterval(interval);
-  }, [animation, animations]);
-
-  // Preload images function
-  function preloadImages(animations) {
     Object.values(animations).forEach((frames) => {
       frames.forEach((src) => {
         const img = new Image();
         img.src = src;
       });
     });
-  }
-
-  useEffect(() => {
-    preloadImages(animations);
   }, [animations]);
 
-  // Return animations for Cat component to use
-  return { position, animation, frame, animations };
+  // Mouse tracking
+  const mouse = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMove = (e) => {
+      mouse.current = { x: e.pageX, y: e.pageY };
+      if (!hasMovedMouse) setHasMovedMouse(true);
+    };
+    window.addEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
+  }, [hasMovedMouse]);
+
+  const catPos = useRef({ ...position });
+  const animationRef = useRef("idle");
+  const hasMovedMouseRef = useRef(false);
+  const animationsRef = useRef(animations);
+  const speed = 10;
+
+  useEffect(() => { hasMovedMouseRef.current = hasMovedMouse; }, [hasMovedMouse]);
+  useEffect(() => { animationsRef.current = animations; }, [animations]);
+
+  function getDirection(dx, dy) {
+    const angle = Math.atan2(dy, dx);
+    if (angle >= -Math.PI / 4 && angle < Math.PI / 4) return "Right";
+    if (angle >= Math.PI / 4 && angle < (3 * Math.PI) / 4) return "Down";
+    if (angle < -Math.PI / 4 && angle >= (-3 * Math.PI) / 4) return "Up";
+    return "Left";
+  }
+
+  // GSAP ticker
+  useGSAP(() => {
+    // Sync GSAP's transform with the initial position
+    if (catRef.current) {
+      gsap.set(catRef.current, {
+        x: catPos.current.x,
+        y: catPos.current.y,
+      });
+    }
+
+    const ticker = () => {
+      if (!hasMovedMouseRef.current || !catRef.current) return;
+
+      const { x: mx, y: my } = mouse.current;
+      const { x, y } = catPos.current;
+      const dx = mx - x;
+      const dy = my - y;
+      const dist = Math.hypot(dx, dy);
+
+      const dir = getDirection(dx, dy);
+      let moving = false;
+      if (dir === "Right") moving = dx > 80;
+      else if (dir === "Left") moving = dx < -80;
+      else if (dir === "Down") moving = dy > 80;
+      else if (dir === "Up") moving = dy < -80;
+
+      const nextAnim = moving ? `move${dir}` : "idle";
+
+      if (moving) {
+        catPos.current.x += (dx / dist) * speed;
+        catPos.current.y += (dy / dist) * speed;
+
+        // GSAP directly mutates the DOM
+        gsap.set(catRef.current, {
+          x: catPos.current.x,
+          y: catPos.current.y,
+        });
+      }
+
+      if (nextAnim !== animationRef.current) {
+        animationRef.current = nextAnim;
+        setAnimation(nextAnim); // only triggers re-render on actual state change
+      }
+    };
+
+    gsap.ticker.add(ticker);
+    return () => gsap.ticker.remove(ticker);
+  }, []);
+
+  // Frame stepping
+  useEffect(() => {
+    const delay = animation === "idle" ? 0.25 : 0.16;
+    let frameIndex = 0;
+
+    let call;
+    const step = () => {
+      frameIndex = (frameIndex + 1) % animationsRef.current[animation].length;
+      setFrame(frameIndex);
+      call = gsap.delayedCall(delay, step);
+    };
+    call = gsap.delayedCall(delay, step);
+
+    return () => call.kill();
+  }, [animation]);
+
+  return { catRef, position, animation, frame, animations };
 }
 
 export function Cat({ currentSection }) {
-  const cat = useCat(currentSection);
+  const { catRef, position, animation, frame, animations } = useCat(currentSection);
 
   const handleImageError = (e) => {
-    e.target.style.display = "none"; // Hide the image if it fails to load
+    e.target.style.display = "none";
   };
 
-  // Use cat.animations for correct frame
   return (
     <div className="cat-container">
       <img
-        src={cat.animations[cat.animation][cat.frame]}
-        style={{ 
-          left: cat.position.x, 
-          top: cat.position.y, 
+        ref={catRef}
+        src={animations[animation][frame]}
+        style={{
+          left: 0,
+          top: 0,
           position: 'absolute',
-          zIndex: 100
+          zIndex: 100,
         }}
         className="cat"
         onError={handleImageError}
       />
-
     </div>
   );
 }
