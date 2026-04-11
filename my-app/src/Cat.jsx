@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState, useMemo } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import './Cat.css';
+
+gsap.registerPlugin(useGSAP);
 
 function useCat(currentSection) {
   const [animation, setAnimation] = useState("idle");
@@ -76,14 +80,8 @@ function useCat(currentSection) {
       lastMouseMove.current = Date.now();
       if (!hasMovedMouse) setHasMovedMouse(true);
     };
-
-    const debouncedHandleMove = (e) => {
-      clearTimeout(lastMouseMove.current);
-      lastMouseMove.current = setTimeout(() => handleMove(e), 16);
-    };
-
-    window.addEventListener('mousemove', debouncedHandleMove);
-    return () => window.removeEventListener('mousemove', debouncedHandleMove);
+    window.addEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
   }, [hasMovedMouse]);
 
   // movement
@@ -158,6 +156,20 @@ function useCat(currentSection) {
     }, delay);
     return () => clearInterval(interval);
   }, [animation, animations]);
+
+  // Preload images function
+  function preloadImages(animations) {
+    Object.values(animations).forEach((frames) => {
+      frames.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+    });
+  }
+
+  useEffect(() => {
+    preloadImages(animations);
+  }, [animations]);
 
   // Return animations for Cat component to use
   return { position, animation, frame, animations };
