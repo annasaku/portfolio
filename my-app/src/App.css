@@ -356,7 +356,7 @@ p5 {
   list-style-type: square;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: 400;
-  font-size: clamp(0.75rem, 1.2vw, 18px);
+  font-size: clamp(0.75rem, 1vw, 18px);
 }
 .airbrb-carousel {
   width: 45vw;
