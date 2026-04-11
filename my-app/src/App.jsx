@@ -17,6 +17,16 @@ function App() {
   const [currentSection, setCurrentSection] = useState('home');
 
   useEffect(() => {
+    const bg = document.querySelector('.background');
+    const setHeight = () => {
+      if (bg) bg.style.height = document.documentElement.scrollHeight + 'px';
+    };
+    setHeight();
+    window.addEventListener('resize', setHeight);
+    return () => window.removeEventListener('resize', setHeight);
+  }, []);
+
+  useEffect(() => {
     const sections = [
       { id: 'home', ref: homeRef },
       { id: 'furikake', ref: furikakeRef },
@@ -105,6 +115,7 @@ function App() {
   };
 
   addRainEffect();
+
 }, []);
 
   return (

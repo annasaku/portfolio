@@ -67,7 +67,7 @@ function useCat(currentSection) {
   const animationRef = useRef("idle");
   const hasMovedMouseRef = useRef(false);
   const animationsRef = useRef(animations);
-  const speed = 10;
+  const speed = 6;
 
   useEffect(() => { hasMovedMouseRef.current = hasMovedMouse; }, [hasMovedMouse]);
   useEffect(() => { animationsRef.current = animations; }, [animations]);
