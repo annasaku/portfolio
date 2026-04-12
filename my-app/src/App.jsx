@@ -386,12 +386,14 @@ function App() {
           <div className="contact" id="contact" ref={contactRef}>
            <div className="contact-text">
              <div className="project-heading contact-heading">Contact me</div>
-              <p1>Anna Sakurai Dahlstrom</p1>
+              <p1 style={{ color: '#cf6868'}}>Anna Sakurai Dahlstrom</p1>
+              <br></br>
+              <p1><a href="https://www.linkedin.com/in/anna-sakurai-dahlstrom-52136219b/" target="_blank" rel="noreferrer" style={{ color: 'inherit'}}>Link to LinkedIn</a></p1>
               <br></br>
               <br></br>
-              <p><strong>Email:</strong> annadahlstrom@outlook.com</p>
-              <p><strong>LinkedIn:</strong> https://www.linkedin.com/in/anna-sakurai-dahlstrom-52136219b/</p>
-              <p1>Please send an email for any enquiries.</p1>
+              <p1>Please send an email for any enquiries:</p1>
+              <br></br>
+              <p1>annadahlstrom@outlook.com</p1>
               <br></br>
               <br></br>
               <p5>I hope you enjoyed the journey of our cat friend!</p5>
