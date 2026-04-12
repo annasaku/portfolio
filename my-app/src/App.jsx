@@ -126,9 +126,12 @@ function App() {
       <div className='foreground'>
         <section className="landing-section" ref={homeRef} id='home'>
           <h1 className="landing-title">Hi, I'm Anna !</h1>
-          <h2 className='landing-text'>I'm a UNSW Computer Science student, with<br></br> a passion for creating 
-            meaningful and memorable projects.
+          <h2 className='landing-text'>I'm a UNSW Computer Science student with<br></br> a passion for full- 
+            stack web development.
           </h2>
+          {/* <h2 className='landing-text'>I'm a UNSW Computer Science student, with<br></br> a passion for creating 
+            meaningful and memorable projects.
+          </h2> */}
           <div className='view-btn-container'>
             <div className="view-btn" onClick={scrollToFurikake}>
               VIEW MY WORK
@@ -396,7 +399,7 @@ function App() {
               <p1>annadahlstrom@outlook.com</p1>
               <br></br>
               <br></br>
-              <p5>I hope you enjoyed the journey of our cat friend!</p5>
+              <p5>Thank you for getting our little friend home!</p5>
             </div>
           </div>
         </section>
