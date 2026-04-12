@@ -90,8 +90,7 @@ function useCat(currentSection) {
       });
     }
 
-    const background = document.querySelector('.background');
-    const bgHeight = background ? background.offsetHeight : window.innerHeight;
+    const initialScrollHeight = document.documentElement.scrollHeight;
 
     const ticker = () => {
       if (!hasMovedMouseRef.current || !catRef.current) return;
@@ -115,8 +114,8 @@ function useCat(currentSection) {
         catPos.current.x += (dx / dist) * speed;
         catPos.current.y += (dy / dist) * speed;
 
-        // ensure the cat can't move past the background height
-        catPos.current.y = Math.min(Math.max(catPos.current.y, 0), bgHeight - 350);
+        // Clamp the cat's movement to the initial scroll height
+        catPos.current.y = Math.min(Math.max(catPos.current.y, 0), initialScrollHeight - 350);
 
         // GSAP directly mutates the DOM
         gsap.set(catRef.current, {
