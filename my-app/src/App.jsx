@@ -227,31 +227,54 @@ function App() {
                 </Carousel.Item>
               </Carousel>
             </div>
-            <div className="funwattle-text">
-              <div className="project-heading">Funwattle</div>
-              <p>
-                In a recent group project I designed and built the Child Dashboard frontend for a speech therapy app. The mobile app aimed to use gamified features to make speech therapy more fun and accessible to children who require language and communication support.
-              </p>
-              <p3>Features:</p3>
-              <ul>
-                <p4>
-                  Gamified elements such as blooming wattle flowers for completed exercises, and customizable mascots with clothing options users can unlock by completing exercises.
-                  Australian native flora and fauna motif with bright colours to appeal to children.
-                </p4>
-              </ul>
-              <p3>Optimisations:</p3>
-              <ul>
-                <p4>
-                  <strong>Reusability:</strong> Designed various exercise templates to dynamically load question data based on exercise type, eliminating the need to create separate files for each exercise, improving code reusability.
-                  <br></br>
-                  <br></br>
-                </p4>
-                <p4>
-                  <strong>Extensibility:</strong> The use of templates allows for easy addition of new exercises, as clients can simply update question and answer data in the backend without modifying the frontend code, making the system highly maintainable and scalable.
-                </p4>
-              </ul>
-              <p1>React Native with Expo, Expo Router<br></br> </p1>
-              <p1>Typescript and Fetch API <br></br> </p1>
+            <div className="desktop-only">
+              <div className="funwattle-text">
+                <div className="project-heading">Funwattle</div>
+                <p>
+                  In a recent group project I designed and built the Child Dashboard frontend for a speech therapy app. The mobile app aimed to use gamified features to make speech therapy more fun and accessible to children who require language and communication support.
+                </p>
+                <p3>Features:</p3>
+                <ul>
+                  <p4>
+                    Gamified elements such as blooming wattle flowers for completed exercises, and customizable mascots with clothing options users can unlock by completing exercises.
+                    Australian native flora and fauna motif with bright colours to appeal to children.
+                  </p4>
+                </ul>
+                <p3>Optimisations:</p3>
+                <ul>
+                  <p4>
+                    <strong>Reusability:</strong> Designed various exercise templates to dynamically load question data based on exercise type, eliminating the need to create separate files for each exercise, improving code reusability.
+                    <br></br>
+                    <br></br>
+                  </p4>
+                  <p4>
+                    <strong>Extensibility:</strong> The use of templates allows for easy addition of new exercises, as clients can simply update question and answer data in the backend without modifying the frontend code, making the system highly maintainable and scalable.
+                  </p4>
+                </ul>
+                <p1>React Native with Expo, Expo Router<br></br> </p1>
+                <p1>Typescript and Fetch API <br></br> </p1>
+              </div>
+            </div>
+            <div className="mobile-only">
+              <div className="funwattle-text">
+                <div className="project-heading">Funwattle</div>
+                <p>
+                  In a recent group project I designed and built the Child Dashboard frontend for a speech therapy app. The mobile app aimed to use gamified features to make speech therapy more fun and accessible to children who require language and communication support.
+                </p>
+                <p3>Optimisations:</p3>
+                <ul>
+                  <p4>
+                    <strong>Reusability:</strong> Designed various exercise templates to dynamically load question data based on exercise type, eliminating the need to create separate files for each exercise, improving code reusability.
+                    <br></br>
+                    <br></br>
+                  </p4>
+                  <p4>
+                    <strong>Extensibility:</strong> The use of templates allows for easy addition of new exercises, as clients can simply update question and answer data in the backend without modifying the frontend code, making the system highly maintainable and scalable.
+                  </p4>
+                </ul>
+                <p1>React Native with Expo, Expo Router<br></br> </p1>
+                <p1>Typescript and Fetch API <br></br> </p1>
+              </div>
             </div>
           </div>
 
