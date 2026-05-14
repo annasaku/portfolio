@@ -19,7 +19,7 @@ body, html, #root, .app-root {
   top: 0;
   left: 0;
 }
-
+/* 
 .tumbleweed {
   width: 500px;
   height: 500px;
@@ -37,7 +37,7 @@ body, html, #root, .app-root {
   55% { transform: translateX(60vw) translateY(-10px) rotate(400deg); }
   80% { transform: translateX(100vw) translateY(-100px) rotate(600deg); }
   100% { transform: translateX(100vw) translateY(-100px) rotate(600deg); }
-}
+} */
 
 .foreground {
   position: absolute;
@@ -393,8 +393,8 @@ p5 {
   padding-top: 8vh;
 }
 
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
   .tumbleweed {
     display: none;
   }
-}
+} */
